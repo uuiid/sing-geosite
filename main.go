@@ -256,7 +256,8 @@ func release(source string, output string, cnOutput string, ruleSetOutput string
 	if err != nil {
 		return err
 	}
-	setActionOutput("tag", *sourceRelease.Name)
+	names := strings.Split(*sourceRelease.Name, " ")
+	setActionOutput("tag", names[len(names)-1])
 	return nil
 }
 
